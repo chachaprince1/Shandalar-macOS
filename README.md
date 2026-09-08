@@ -1,6 +1,6 @@
 # Shandalar for macOS
 
-Classic **Shandalar / ManaLink 1.3.2** packaged for **Apple Silicon Macs**.
+Classic **Shandalar / ManaLink 1.3.2** packaged for modern **Apple Silicon and Intel Macs**.
 
 This project makes the old **Home of the Underdogs (HOTU)** version of Shandalar easy to launch on modern macOS without requiring users to manually configure a Windows compatibility environment.
 
@@ -10,7 +10,7 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**Shandalar for macOS 1.0.2 — Build 3**
+**Shandalar for macOS Basic 1.0.7 — Build 8**
 
 ## What version of Shandalar is this?
 
@@ -30,11 +30,9 @@ It is not one of the later community builds that adds Ice Age, Mirage, or thousa
 
 ## System requirements
 
-* **Apple Silicon Mac**
+* **Apple Silicon or Intel Mac**
 * **macOS 14 or later**
-* Approximately 630 MB for the release download, plus runtime/game data
-
-Intel Macs are not currently supported.
+* Approximately 656 MB for the release download, plus runtime/game data
 
 ## How to use it
 
@@ -58,6 +56,9 @@ Current features include:
 * Installs the required Windows Sound Blaster driver
 * Waits for DirectSound to become ready before launching Shandalar
 * Disables obsolete Windows 98 startup/Welcome audio that can interfere with game sound
+* Uses the native Metal presenter at the game's maximum supported 1024×768/16-bit mode
+* Applies the Shandalar wallpaper, branded Windows boot logo, hidden desktop icons, and auto-hidden taskbar
+* Uses a non-blocking startup path so the Windows guest cannot stall on synchronous registry imports
 * Automatically applies the required audio repair to existing installations
 * Preserves affected files with SHA-256-backed-up migration behavior
 * Automatically creates verified campaign backups
@@ -67,7 +68,7 @@ Current features include:
 
 On first launch, writable game and runtime data are created in:
 
-`~/Library/Application Support/Shandalar`
+~/Library/Application Support/Shandalar
 
 Before every launch, the app creates and SHA-256-verifies a complete campaign backup.
 
@@ -79,7 +80,7 @@ If the live runtime image becomes missing or incomplete, relaunching the app aut
 
 If something goes wrong, diagnostic information and recovery instructions are written to:
 
-`~/Library/Application Support/Shandalar/Logs/diagnostics.txt`
+~/Library/Application Support/Shandalar/Logs/diagnostics.txt
 
 If you report a problem, including the contents of this file may help identify the cause.
 
@@ -108,9 +109,19 @@ Please open an **Issue** and include:
 * What happened
 * What you expected to happen
 * Whether the problem happens every time
-* Relevant contents of `diagnostics.txt`, if available
+* Relevant contents of diagnostics.txt, if available
 
 ## Release history
+
+### 1.0.7 — Build 8 (Basic)
+
+* Fixed the slow/apparently stuck boot caused by blocking regedit /s startup imports under Windows 98 emulation.
+* Startup presentation and startup-audio muting now run through direct Win32 helpers; the original game files remain unchanged.
+* Keeps the native Metal/fullscreen 1024×768 presentation, universal Apple Silicon/Intel launcher, Shandalar boot logo and wallpaper, hidden desktop chrome, audio repair, verified backups, and 1,275-file HotU/ManaLink 1.3.2 payload.
+
+### 1.0.6 — Build 7
+
+* Fixed the timed lair-entry intro movie path by disabling render-on-demand and host-vsync pacing.
 
 ### 1.0.2 — Build 3
 
