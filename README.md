@@ -70,7 +70,7 @@ Current features include:
 
 On first launch, writable game and runtime data are created in:
 
-`~/Library/Application Support/Shandalar`
+~/Library/Application Support/Shandalar
 
 Before every launch, the app creates and SHA-256-verifies a complete campaign backup.
 
@@ -82,7 +82,7 @@ If the live runtime image becomes missing or incomplete, relaunching the app aut
 
 If something goes wrong, diagnostic information and recovery instructions are written to:
 
-`~/Library/Application Support/Shandalar/Logs/diagnostics.txt`
+~/Library/Application Support/Shandalar/Logs/diagnostics.txt
 
 If you report a problem, including the contents of this file may help identify the cause.
 
@@ -111,7 +111,7 @@ Please open an **Issue** and include:
 * What happened
 * What you expected to happen
 * Whether the problem happens every time
-* Relevant contents of `diagnostics.txt`, if available
+* Relevant contents of diagnostics.txt, if available
 
 ## Release history
 
