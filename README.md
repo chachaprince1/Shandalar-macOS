@@ -1,6 +1,6 @@
 # Shandalar for macOS
 
-Classic **Shandalar / ManaLink 1.3.2** packaged for **Apple Silicon Macs**.
+Classic **Shandalar / ManaLink 1.3.2** packaged for modern **Apple Silicon and Intel Macs**.
 
 This project makes the old **Home of the Underdogs (HOTU)** version of Shandalar easy to launch on modern macOS without requiring users to manually configure a Windows compatibility environment.
 
@@ -10,7 +10,7 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**Shandalar for macOS 1.0.2 — Build 3**
+**Shandalar for macOS Basic 1.0.8 — Build 9**
 
 ## What version of Shandalar is this?
 
@@ -30,11 +30,9 @@ It is not one of the later community builds that adds Ice Age, Mirage, or thousa
 
 ## System requirements
 
-* **Apple Silicon Mac**
+* **Apple Silicon or Intel Mac**
 * **macOS 14 or later**
-* Approximately 630 MB for the release download, plus runtime/game data
-
-Intel Macs are not currently supported.
+* Approximately 656 MB for the release download, plus runtime/game data
 
 ## How to use it
 
@@ -58,6 +56,11 @@ Current features include:
 * Installs the required Windows Sound Blaster driver
 * Waits for DirectSound to become ready before launching Shandalar
 * Disables obsolete Windows 98 startup/Welcome audio that can interfere with game sound
+* Uses the native Metal presenter at the game's maximum supported 1024×768/16-bit mode
+* Applies the Shandalar wallpaper, branded Windows boot logo, hidden desktop icons, and auto-hidden taskbar
+* Uses a non-blocking startup path so the Windows guest cannot stall on synchronous registry imports
+* Uses deterministic guest CPU pacing for the five-colour lair transition effect
+* Suppresses the disruptive Windows 98 post-crash ScanDisk screen after an abnormal prior exit, while retaining verified image backups
 * Automatically applies the required audio repair to existing installations
 * Preserves affected files with SHA-256-backed-up migration behavior
 * Automatically creates verified campaign backups
@@ -111,6 +114,22 @@ Please open an **Issue** and include:
 * Relevant contents of `diagnostics.txt`, if available
 
 ## Release history
+
+### 1.0.8 — Build 9 (Basic)
+
+* Uses `core=normal` with `cycles=fixed 100000` to reduce pacing jitter during Shandalar's guest-side five-colour lair-entry pixel reveal.
+* Corrects the earlier diagnosis: this reveal is not `Mtgend.avi`; the original `Dungeon*.spr` assets remain intact.
+* Migrates Windows 98 `MSDOS.SYS` from `AutoScan=1` to `AutoScan=0` after creating a verified pre-migration backup, preventing the blue post-crash ScanDisk screen from interrupting launch.
+
+### 1.0.7 — Build 8 (Basic)
+
+* Fixed the slow/apparently stuck boot caused by blocking `regedit /s` startup imports under Windows 98 emulation.
+* Startup presentation and startup-audio muting now run through direct Win32 helpers; the original game files remain unchanged.
+* Keeps the native Metal/fullscreen 1024×768 presentation, universal Apple Silicon/Intel launcher, Shandalar boot logo and wallpaper, hidden desktop chrome, audio repair, verified backups, and 1,275-file HotU/ManaLink 1.3.2 payload.
+
+### 1.0.6 — Build 7
+
+* Adjusted the separate timed lair-entry Indeo AVI path by disabling render-on-demand and host-vsync pacing. The five-colour reveal is a guest-side software effect and is addressed separately in 1.0.8.
 
 ### 1.0.2 — Build 3
 
