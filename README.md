@@ -10,7 +10,7 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**Shandalar for macOS Basic 1.0.8 — Build 9**
+**Shandalar for macOS Basic 1.0.9 — Build 10**
 
 ## What version of Shandalar is this?
 
@@ -114,6 +114,14 @@ Please open an **Issue** and include:
 * Relevant contents of diagnostics.txt, if available
 
 ## Release history
+
+### 1.0.9 — Build 10 (Basic)
+
+* Fixes the `EXC_BAD_ACCESS (SIGBUS)` crash report that could appear after quitting the game. Opening Shandalar straight from the unzipped download made macOS run it from a temporary read-only App Translocation mount, which macOS then discarded while the launcher was still shutting the guest down.
+* Shandalar now detects a translocated launch before doing anything else, offers to move itself into your Applications folder, clears the quarantine flag that caused the translocation, and relaunches from there.
+* Normal launches also clear a leftover quarantine flag, so a copy moved by hand stops translocating too.
+* On older builds, moving `Shandalar.app` into Applications by hand avoids the same crash.
+* No change to the guest image, DOSBox-X configuration, or the supplied HOTU / ManaLink 1.3.2 payload.
 
 ### 1.0.8 — Build 9 (Basic)
 
