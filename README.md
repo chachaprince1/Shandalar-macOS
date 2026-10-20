@@ -10,7 +10,22 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**Shandalar for macOS Basic 1.0.9 — Build 10**
+**[Shandalar for macOS Basic 1.1.0 — Build 17](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.0)**
+
+[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.0/Shandalar-macOS-basic-1.1.0-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
+
+## What's new in 1.1.0?
+
+This is the **Basic** release, combining the improvements since public 1.0.9—not the separate HD project.
+
+* One continuous, cursor-free “Shandalar Materializing…” loading image; hidden DOS popup, Windows taskbar and emulator banners; original skull icon on black.
+* Quiet, normal shutdown without redisplaying the loading art. Fixes the closing overlay that could cover a running duel.
+* Separate Basic campaign data, backed-up save/deck import from older installations, and checks on the actual original game inside the Windows disk.
+* Protection against two app copies opening the same campaign, responsive startup progress, and verified backups.
+* Native ARM runtime selection on Apple Silicon, even when the launcher starts under Rosetta.
+* Fixes a false verification failure caused by the game's generated statistics-screen cache.
+
+**No original game artwork, fonts, sprites, card pool or gameplay binaries have been replaced.** The existing 1024×768/16-bit Metal presentation is retained.
 
 ## What version of Shandalar is this?
 
@@ -30,18 +45,18 @@ It is not one of the later community builds that adds Ice Age, Mirage, or thousa
 
 ## System requirements
 
-* **Apple Silicon or Intel Mac**
 * **macOS 14 or later**
-* Approximately 656 MB for the release download, plus runtime/game data
+* **Apple Silicon Mac** (primary tested platform); Intel binaries are included, but physical Intel hardware is unverified
+* Approximately 656 MB for the download, plus space for the app, runtime/game data and verified backups
 
 ## How to use it
 
-1. Download and unzip the latest release.
-2. Open **Shandalar.app**.
-3. Play normally.
-4. When finished, **exit from inside Shandalar**.
+1. Close every older Shandalar copy before upgrading.
+2. Download and unzip the application ZIP, then open **Shandalar.app**.
+3. Allow first-launch preparation and its backed-up migration to finish. Supported saves/decks from a closed older installation are imported; the old disk is left intact.
+4. Play normally. When finished, **exit from inside Shandalar** so Windows and the runtime shut down normally.
 
-The emulated Windows 98 environment and Mac runtime will then shut down automatically.
+Keep the older data folder and backups until you have checked the upgrade. Only one app copy should use a campaign at a time.
 
 ## What this macOS version does
 
@@ -57,9 +72,9 @@ Current features include:
 * Waits for DirectSound to become ready before launching Shandalar
 * Disables obsolete Windows 98 startup/Welcome audio that can interfere with game sound
 * Uses the native Metal presenter at the game's maximum supported 1024×768/16-bit mode
-* Applies the Shandalar wallpaper, branded Windows boot logo, hidden desktop icons, and auto-hidden taskbar
+* Shows a continuous Shandalar startup image and keeps Windows desktop icons and taskbar out of normal startup/play
 * Uses a non-blocking startup path so the Windows guest cannot stall on synchronous registry imports
-* Uses deterministic guest CPU pacing for the five-colour lair transition effect
+* Retains deterministic guest CPU pacing; the five-colour lair reveal is not universally resolved
 * Suppresses the disruptive Windows 98 post-crash ScanDisk screen after an abnormal prior exit, while retaining verified image backups
 * Automatically applies the required audio repair to existing installations
 * Preserves affected files with SHA-256-backed-up migration behavior
@@ -68,9 +83,11 @@ Current features include:
 
 ## Save data and runtime files
 
+From 1.1.0, Basic uses its own data folder, separate from legacy/HD installations. Upgrades preserve the old disk and a verified snapshot, then copy only supported saves and decks—not HD art, fonts or renderer files.
+
 On first launch, writable game and runtime data are created in:
 
-~/Library/Application Support/Shandalar
+~/Library/Application Support/Shandalar Basic
 
 Before every launch, the app creates and SHA-256-verifies a complete campaign backup.
 
@@ -82,9 +99,17 @@ If the live runtime image becomes missing or incomplete, relaunching the app aut
 
 If something goes wrong, diagnostic information and recovery instructions are written to:
 
-~/Library/Application Support/Shandalar/Logs/diagnostics.txt
+~/Library/Application Support/Shandalar Basic/Logs/diagnostics.txt
 
 If you report a problem, including the contents of this file may help identify the cause.
+
+## Testing and known limitations
+
+1.1.0 passed package integrity, original-file, architecture/macOS-minimum, archive and startup-presentation checks. Local testing reached a live duel; user testing reported no issues, and normal exit plus post-duel reopen passed.
+
+This does **not** certify every Mac. The audio-stuttering report from an **M1 Max with 64 GB on Sequoia** still needs confirmation on the affected machine. **Physical Intel Macs remain untested**, although Intel binaries are included. The slow five-colour lair reveal is **not claimed fixed** by this release.
+
+If you report a problem, include your version, Mac model/chip, RAM, macOS version, exact screen/action and whether it repeats. Review diagnostics for personal information before posting.
 
 ## Signing
 
@@ -114,6 +139,15 @@ Please open an **Issue** and include:
 * Relevant contents of diagnostics.txt, if available
 
 ## Release history
+
+### 1.1.0 — Build 17 (Basic)
+
+* Combines the work since public 1.0.9: one continuous cursor-free loading image, hidden DOS/Windows/emulator chrome, original skull icon on black, and quiet normal shutdown.
+* Fixes the closing overlay covering a live duel and a false original-file check on a generated statistics-screen cache.
+* Separates Basic saves/runtime data from legacy/HD installations, with verified save/deck import and original installed-game checks.
+* Adds single-session protection, responsive startup preparation, traceable packaging, and native ARM routing even when the Mac launcher starts under Rosetta.
+* Preserves original game assets and 1024×768 Metal presentation. No HD assets or additional cards.
+* Local duel testing, clean shutdown, reopen and package checks passed. M1 Max/Sequoia audio and physical Intel performance remain unverified; no new lair-reveal fix is claimed.
 
 ### 1.0.9 — Build 10 (Basic)
 
