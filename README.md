@@ -10,11 +10,17 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**[Shandalar for macOS Basic 1.1.0 — Build 17](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.0)**
+**[Shandalar for macOS Basic 1.1.1 — Build 18](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.1)**
 
-[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.0/Shandalar-macOS-basic-1.1.0-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
+[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.1/Shandalar-macOS-basic-1.1.1-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
 
-## What's new in 1.1.0?
+## What's new in 1.1.1?
+
+Fixes the **`MAGIC3.fce` launch error after saving and reopening**, reported in [issue #3](https://github.com/chachaprince1/Shandalar-macOS/issues/3), [issue #4](https://github.com/chachaprince1/Shandalar-macOS/issues/4), and on Reddit. These numbered files are saved campaign portraits, not immutable game artwork. The launcher now preserves them as player data and includes them in verified save imports; checks on actual game assets remain enabled.
+
+**Close the old app and replace it with the new one. Keep Application Support and your backups; no campaign reset is needed.** This is a save-verification hotfix, not an audio/performance fix. All 1.1.0 runtime resources and CPU/audio settings remain unchanged.
+
+## Inherited from 1.1.0
 
 This is the **Basic** release, combining the improvements since public 1.0.9—not the separate HD project.
 
@@ -105,9 +111,11 @@ If you report a problem, including the contents of this file may help identify t
 
 ## Testing and known limitations
 
+1.1.1 passed ARM and x86_64 policy/import regression tests, full installed-game and package acceptance. An isolated changed-portrait disk reproduced the 1.1.0 error; 1.1.1 accepted the same disk without changing the portrait and booted to the title, with normal exit. This is not affected-reporter confirmation or a new full gameplay qualification.
+
 1.1.0 passed package integrity, original-file, architecture/macOS-minimum, archive and startup-presentation checks. Local testing reached a live duel; user testing reported no issues, and normal exit plus post-duel reopen passed.
 
-This does **not** certify every Mac. The audio-stuttering report from an **M1 Max with 64 GB on Sequoia** still needs confirmation on the affected machine. **Physical Intel Macs remain untested**, although Intel binaries are included. The slow five-colour lair reveal is **not claimed fixed** by this release.
+This does **not** certify every Mac. The audio-stuttering report from an **M1 Max with 64 GB on Sequoia** still needs confirmation on the affected machine. **Physical Intel performance is not qualified by local testing**, although Intel binaries are included. The slow five-colour lair reveal is **not claimed fixed** by this release.
 
 If you report a problem, include your version, Mac model/chip, RAM, macOS version, exact screen/action and whether it repeats. Review diagnostics for personal information before posting.
 
@@ -139,6 +147,12 @@ Please open an **Issue** and include:
 * Relevant contents of diagnostics.txt, if available
 
 ## Release history
+
+### 1.1.1 — Build 18 (Basic)
+
+* Fixes the false `MAGIC3.fce` original-file error after saving and reopening (GitHub #3/#4 and Reddit).
+* Preserves numbered campaign portraits in place and includes them in checksum-verified save imports. No save reset, guest migration or change to original game assets.
+* Keeps all 1.1.0 runtime/configuration/asset hashes unchanged. Does not claim a new audio or lair-reveal fix.
 
 ### 1.1.0 — Build 17 (Basic)
 
