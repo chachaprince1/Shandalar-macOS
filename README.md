@@ -14,6 +14,10 @@ Current release:
 
 [Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.1/Shandalar-macOS-basic-1.1.1-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
 
+## Optional audio test (not stable)
+
+If sound stutters during card loading or scene changes, [1.1.2 Audio Test 1](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.2-audio-test.1) offers three launch-time CPU profiles: Audio headroom (60,000), More headroom (40,000), and 1.1.1 speed (100,000). Start with Audio headroom. Lower settings may improve sound but make card loading or animations slower; this is **not a confirmed universal fix**. It keeps the original Basic game files, audio buffers and existing save location, and adds timing logs without recording audio. Close all app copies before switching; keep Application Support and backups. You can return to stable 1.1.1 without resetting your campaign. Please share results in [issue #5](https://github.com/chachaprince1/Shandalar-macOS/issues/5).
+
 ## What's new in 1.1.1?
 
 Fixes the **`MAGIC3.fce` launch error after saving and reopening**, reported in [issue #3](https://github.com/chachaprince1/Shandalar-macOS/issues/3), [issue #4](https://github.com/chachaprince1/Shandalar-macOS/issues/4), and on Reddit. These numbered files are saved campaign portraits, not immutable game artwork. The launcher now preserves them as player data and includes them in verified save imports; checks on actual game assets remain enabled.
