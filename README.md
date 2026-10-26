@@ -10,13 +10,19 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**[Shandalar for macOS Basic 1.1.1 — Build 18](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.1)**
+**[Shandalar for macOS Basic 1.1.2 — Build 21](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.2)**
 
-[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.1/Shandalar-macOS-basic-1.1.1-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
+[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.2/Shandalar-macOS-basic-1.1.2-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
 
-## Optional audio test (not stable)
+## What's new in 1.1.2?
 
-If sound stutters during card loading or scene changes, [1.1.2 Audio Test 1](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.2-audio-test.1) offers three launch-time CPU profiles: Audio headroom (60,000), More headroom (40,000), and 1.1.1 speed (100,000). Start with Audio headroom. Lower settings may improve sound but make card loading or animations slower; this is **not a confirmed universal fix**. It keeps the original Basic game files, audio buffers and existing save location, and adds timing logs without recording audio. Close all app copies before switching; keep Application Support and backups. You can return to stable 1.1.1 without resetting your campaign. Please share results in [issue #5](https://github.com/chachaprince1/Shandalar-macOS/issues/5).
+Balanced (60,000 cycles) is now the default, giving audio more processing headroom. The affected M1 Max / Sequoia reporter confirmed smooth sound at 60,000 and reproduced stutter at the previous 100,000 setting. This supports the new default, not a promise of perfect audio on every Mac.
+
+There is one app, with no startup test chooser. Choose **Shandalar > Performance…** in the Mac menu (or the launcher's Dock menu) for a remembered next-launch setting: Balanced, Extra audio headroom (40,000), or the previous higher budget (100,000). Lower settings may slow card loading or movement; higher settings may bring stutter back. Saving does not retime the current game.
+
+Diagnostics now include active/next-launch profiles and bounded clock-progress summaries. No sound is recorded or uploaded; this is not automatic tuning or direct audio-dropout detection. Original assets, audio buffers, the bundled Windows image and save handling are unchanged. A verified, backed-up one-time startup update prevents obsolete Windows 98 daylight-saving rules from blocking launch with a clock prompt; it does not change your Mac's clock or time zone. No walking-speed patch is included. The optional Audio Test 1 is superseded by this release.
+
+Close older copies before updating and keep Application Support and backups. Please share remaining performance problems in [issue #5](https://github.com/chachaprince1/Shandalar-macOS/issues/5); the overworld input-lag question remains open.
 
 ## What's new in 1.1.1?
 
@@ -115,11 +121,13 @@ If you report a problem, including the contents of this file may help identify t
 
 ## Testing and known limitations
 
+1.1.2 passed full package acceptance, ARM/x86_64 profile/persistence/timing tests, original-file verification and archive checks. Isolated native tests verified campaign resume, the native Performance menu, next-launch persistence, fresh-install and existing-campaign clock migration, normal quit and reopen. This does not constitute a new exhaustive campaign playthrough.
+
 1.1.1 passed ARM and x86_64 policy/import regression tests, full installed-game and package acceptance. An isolated changed-portrait disk reproduced the 1.1.0 error; 1.1.1 accepted the same disk without changing the portrait and booted to the title, with normal exit. This is not affected-reporter confirmation or a new full gameplay qualification.
 
 1.1.0 passed package integrity, original-file, architecture/macOS-minimum, archive and startup-presentation checks. Local testing reached a live duel; user testing reported no issues, and normal exit plus post-duel reopen passed.
 
-This does **not** certify every Mac. The audio-stuttering report from an **M1 Max with 64 GB on Sequoia** still needs confirmation on the affected machine. **Physical Intel performance is not qualified by local testing**, although Intel binaries are included. The slow five-colour lair reveal is **not claimed fixed** by this release.
+This does **not** certify every Mac. The **M1 Max with 64 GB on Sequoia** reporter confirmed smooth audio at the new default, but the final packaged release and every other Mac are not universally qualified. Overworld input lag remains under investigation. **Physical Intel performance is not qualified by local testing**, although Intel binaries are included. The slow five-colour lair reveal is **not claimed fixed** by this release.
 
 If you report a problem, include your version, Mac model/chip, RAM, macOS version, exact screen/action and whether it repeats. Review diagnostics for personal information before posting.
 
@@ -151,6 +159,14 @@ Please open an **Issue** and include:
 * Relevant contents of diagnostics.txt, if available
 
 ## Release history
+
+### 1.1.2 — Build 21 (Basic)
+
+* Uses reporter-tested 60,000 cycles by default for audio headroom; previous 100,000 and extra-headroom 40,000 remain optional.
+* One app with a remembered native Performance menu; changes apply next launch, not during live play.
+* Adds local clock diagnostics without recording audio or claiming automatic stutter detection.
+* Prevents the obsolete Windows daylight-saving prompt through a backed-up one-time guest update, verified after normal exit. Your Mac clock/time zone is not changed.
+* Preserves original game bytes, save location and bundled Windows image. No HD assets, extra cards or walking-speed patch.
 
 ### 1.1.1 — Build 18 (Basic)
 
