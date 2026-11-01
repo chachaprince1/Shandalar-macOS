@@ -20,7 +20,7 @@ Current release:
 
 The adventure reward/buy-any-card picker now pages long lists with Previous/Next. The overflowing Red → Summon list was reproduced and the corrected picker was user-tested. This is not the deck editor. Eligible cards, the original game executable, card pool, artwork and fonts are unchanged.
 
-The upgrade preserves Basic campaign data and creates a verified backup before installing the guest helper. A clean install and a 1.1.2 campaign upgrade both booted and shut down normally in isolated tests. Close older copies before updating, and keep `~/Library/Application Support/Shandalar Basic` and its backups. [Report remaining performance issues in #5](https://github.com/chachaprince1/Shandalar-macOS/issues/5).
+The upgrade preserves Basic campaign data and creates a verified backup before installing the guest helper. A clean install and a 1.1.2 campaign upgrade both booted and shut down normally in isolated tests. Close older copies before updating, and keep `~/Library/Application Support/Shandalar Basic` and its backups. 
 
 ## Previously in 1.1.2
 
