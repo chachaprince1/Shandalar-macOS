@@ -10,11 +10,19 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**[Shandalar for macOS Basic 1.1.2 — Build 21](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.2)**
+**[Shandalar for macOS Basic 1.1.3 — Build 22](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.3)**
 
-[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.2/Shandalar-macOS-basic-1.1.2-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
+[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.3/Shandalar-macOS-basic-1.1.3-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
 
-## What's new in 1.1.2?
+## What's new in 1.1.3?
+
+This is the **expected fix** for the sound-stutter versus movement-lag tradeoff reported on an M1 Max. A lower-overhead emulator runs at the original 100,000-cycle game speed, while bounded faster disk reads reduce card-image loading stalls. It applies automatically; no performance setting or toggle is needed. Local movement and audio were smooth, but the affected M1 Max/Sequoia result is awaiting confirmation.
+
+Long adventure reward/buy-any-card lists now have Previous/Next pages. The overflowing Red → Summon list was reproduced and its correction tested. This is the reward picker, not the deck editor. Original HotU art, fonts, cards and game executable remain unchanged.
+
+Close older copies before updating. Keep `~/Library/Application Support/Shandalar Basic` and its backups. An isolated clean install and upgrade of an existing campaign both reached the title and exited normally; the campaign files remained byte-identical. Please share any remaining performance problems in [issue #5](https://github.com/chachaprince1/Shandalar-macOS/issues/5).
+
+## What changed in 1.1.2?
 
 Balanced (60,000 cycles) is now the default, giving audio more processing headroom. The affected M1 Max / Sequoia reporter confirmed smooth sound at 60,000 and reproduced stutter at the previous 100,000 setting. This supports the new default, not a promise of perfect audio on every Mac.
 
@@ -121,13 +129,15 @@ If you report a problem, including the contents of this file may help identify t
 
 ## Testing and known limitations
 
+1.1.3 passed full universal package acceptance, original-file checks, clean-install and existing-campaign upgrade checks, with normal exits. The user tested smooth local gameplay/audio and confirmed the Red → Summon picker fix. This is the expected fix, not yet confirmation on the affected M1 Max or physical Intel hardware.
+
 1.1.2 passed full package acceptance, ARM/x86_64 profile/persistence/timing tests, original-file verification and archive checks. Isolated native tests verified campaign resume, the native Performance menu, next-launch persistence, fresh-install and existing-campaign clock migration, normal quit and reopen. This does not constitute a new exhaustive campaign playthrough.
 
 1.1.1 passed ARM and x86_64 policy/import regression tests, full installed-game and package acceptance. An isolated changed-portrait disk reproduced the 1.1.0 error; 1.1.1 accepted the same disk without changing the portrait and booted to the title, with normal exit. This is not affected-reporter confirmation or a new full gameplay qualification.
 
 1.1.0 passed package integrity, original-file, architecture/macOS-minimum, archive and startup-presentation checks. Local testing reached a live duel; user testing reported no issues, and normal exit plus post-duel reopen passed.
 
-This does **not** certify every Mac. The **M1 Max with 64 GB on Sequoia** reporter confirmed smooth audio at the new default, but the final packaged release and every other Mac are not universally qualified. Overworld input lag remains under investigation. **Physical Intel performance is not qualified by local testing**, although Intel binaries are included. The slow five-colour lair reveal is **not claimed fixed** by this release.
+This does **not** certify every Mac. The **M1 Max with 64 GB on Sequoia** reporter confirmed smooth audio at 1.1.2's lower-speed setting; they have not yet tried 1.1.3's higher-speed, lower-overhead combination. **Physical Intel performance is not qualified by local testing**, although Intel binaries are included. The slow five-colour lair reveal is **not claimed fixed** by this release.
 
 If you report a problem, include your version, Mac model/chip, RAM, macOS version, exact screen/action and whether it repeats. Review diagnostics for personal information before posting.
 
@@ -159,6 +169,12 @@ Please open an **Issue** and include:
 * Relevant contents of diagnostics.txt, if available
 
 ## Release history
+
+### 1.1.3 — Build 22 (Basic)
+
+* Expected fix for audio stutter versus movement lag: lower-overhead universal emulator, original game speed, bounded faster card-image reads, and no manual performance toggle. Local gameplay/audio passed; affected M1 Max confirmation is pending.
+* Adds Previous/Next pages to long adventure reward-card lists, including Red → Summon. Preserves the original game assets and card pool.
+* Passed full package acceptance and isolated clean-install/campaign-upgrade checks with normal exits and preserved saves.
 
 ### 1.1.2 — Build 21 (Basic)
 
