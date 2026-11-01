@@ -30,7 +30,7 @@ In 1.1.2, there was one app with no startup test chooser. That version offered *
 
 Diagnostics now include active/next-launch profiles and bounded clock-progress summaries. No sound is recorded or uploaded; this is not automatic tuning or direct audio-dropout detection. Original assets, audio buffers, the bundled Windows image and save handling are unchanged. A verified, backed-up one-time startup update prevents obsolete Windows 98 daylight-saving rules from blocking launch with a clock prompt; it does not change your Mac's clock or time zone. No walking-speed patch is included. The optional Audio Test 1 is superseded by this release.
 
-Close older copies before updating and keep Application Support and backups. Please share remaining performance problems in [issue #5](https://github.com/chachaprince1/Shandalar-macOS/issues/5); the overworld input-lag question remains open.
+Close older copies before updating and keep Application Support and backups. Please share remaining performance problems in [issue #5](https://github.com/chachaprince1/Shandalar-macOS/issues/5); the overworld input-lag question remains open (fixed in 1.1.3!).
 
 ## What's new in 1.1.1?
 
