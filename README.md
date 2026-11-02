@@ -10,11 +10,15 @@ Download the newest version from the **Releases** section of this repository.
 
 Current release:
 
-**[Shandalar for macOS Basic 1.1.3](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.3)**
+**[Shandalar for macOS Basic 1.1.4](https://github.com/chachaprince1/Shandalar-macOS/releases/tag/v1.1.4)**
 
-[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.3/Shandalar-macOS-basic-1.1.3-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
+[Download the application ZIP](https://github.com/chachaprince1/Shandalar-macOS/releases/download/v1.1.4/Shandalar-macOS-basic-1.1.4-universal.zip). Do not use the automatically generated “Source code” archives; those are not the Mac app.
 
-## What's new in 1.1.3?
+## What's new in 1.1.4?
+
+1.1.4 speeds up card-art decoding and color conversion automatically. First-load times fell 18–29% across four thumbnail/preview sizes on the local M4 Pro. A large preview fell from 449 to 316 ms. All 64 paired renders matched the original pixels, and 124 additional color-conversion checks passed. Gains on other Macs remain unmeasured. Existing Basic campaigns receive a verified, backed-up helper update.
+
+## Previously in 1.1.3
 
 1.1.3 is the expected fix for the reported sound-stutter versus movement-lag tradeoff. A lower-overhead DOSBox-X build runs at the original 100,000-cycle game speed, and card-image reads are faster but bounded. This applies automatically with no performance toggle. Gameplay and audio were smooth in local testing; the affected M1 Max/Sequoia result still needs the reporter's confirmation.
 
@@ -169,6 +173,11 @@ Please open an **Issue** and include:
 * Relevant contents of diagnostics.txt, if available
 
 ## Release history
+
+### 1.1.4 (Basic)
+
+1.1.4 speeds up card-art decoding and color conversion automatically. First-load times fell 18–29% across four thumbnail/preview sizes on the local M4 Pro. A large preview fell from 449 to 316 ms. All 64 paired renders matched the original pixels, and 124 additional color-conversion checks passed. Gains on other Macs remain unmeasured. Existing Basic campaigns receive a verified, backed-up helper update.
+
 
 ### 1.1.3 (Basic)
 
